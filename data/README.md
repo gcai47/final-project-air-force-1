@@ -1,4 +1,5 @@
 List of columns for data table
+Data set was taken from https://github.com/fivethirtyeight/data/tree/master/police-killings
 
 ### Police Killings
 
@@ -22,13 +23,13 @@ Header | Description | Source
 `streetaddress` | Address/intersection where incident occurred | Guardian
 `city` | City where incident occurred | Guardian
 `state` | State where incident occurred | Guardian
-`latitude` | Latitude, geocoded from address | 
-`longitude` | Longitude, geocoded from address | 
+`latitude` | Latitude, geocoded from address |
+`longitude` | Longitude, geocoded from address |
 `state_fp` | State FIPS code | Census
 `county_fp` | County FIPS code | Census
 `tract_ce` | Tract ID code | Census
-`geo_id` | Combined tract ID code | 
-`county_id` | Combined county ID code | 
+`geo_id` | Combined tract ID code |
+`county_id` | Combined county ID code |
 `namelsad` | Tract description | Census
 `lawenforcementagency` | Agency involved in incident | Guardian
 `cause` | Cause of death | Guardian
@@ -40,7 +41,7 @@ Header | Description | Source
 `p_income` | Tract-level median personal income | Census
 `h_income` | Tract-level median household income | Census
 `county_income` | County-level median household income | Census
-`comp_income` | `h_income` / `county_income` | Calculated from Census 
+`comp_income` | `h_income` / `county_income` | Calculated from Census
 `county_bucket` | Household income, quintile within county | Calculated from Census
 `nat_bucket` | Household income, quintile nationally | Calculated from Census
 `pov` | Tract-level poverty rate (official) | Census
