@@ -1,8 +1,7 @@
 library(dplyr)
 
 BarData <- function(full.data) {
-  full.data <- read.csv('./data/police_killings.csv', stringsAsFactors = FALSE)
   data <- full.data %>%
-    select()
+    transmute(age, raceethnicity, state, cause, armed, avg_income = comp_income >= 1, county_bucket, nat_bucket)
   return(data)
 }
