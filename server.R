@@ -1,14 +1,18 @@
-#INFO 201 assignment 8 building apps server file
 library(plotly)
 library(shiny)
 library(ggplot2)
 library(dplyr)
 library(scales)
 
-#set working directory to folder with data
-#setwd("~/UW Freshman Year/INFO 201/a8-building-apps-anuraagpolisetty/")
+source('./scripts/MapData.R')
+source('./scripts/HistogramData.R')
+source('./scripts/PieData.R')
+source('./scripts/BarData.R')
+source('./scripts/MapPlot.R')
+source('./scripts/HistogramPlot.R')
+source('./scripts/PiePlot.R')
+source('./scripts/BarPlot.R')
 
-#read in cereal dataset
 full.data <- read.csv('./data/police_killings.csv', stringsAsFactors = FALSE)
 
 map.data <- MapData(full.data)
