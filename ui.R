@@ -23,17 +23,10 @@ shinyUI(fluidPage(
                
                ),
       
-      tabPanel("Pie Chart", 
-               titlePanel("Races of Casualties vs. Races of Cities"),
-               sidebarPanel(
-                  textInput(inputId = "citysearch", label = "Search for a City:", value = "City Name"),
-                  selectInput(inputId = "city", 
-                           label = "Select a City", 
-                           choices = list("Los Angeles" = 'LA', "Houston" = 'Hous'),
-                           selected = "Los Angeles")
-               ),
+      tabPanel("Scatter Plot", 
+               titlePanel("Scatter Pot"),
                mainPanel(
-                 plotlyOutput('Pie')
+                 plotlyOutput('Scatter')
                )
                
                ),
