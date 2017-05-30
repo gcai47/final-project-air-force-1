@@ -1,9 +1,11 @@
 library(tidytext)
 library(plotly)
 
+setwd('C:/Users/Zach/Documents/info201hw/final-project-air-force-1/scripts')
+
 source('HistogramData.R')
 
-source.data <- read.csv('~/info201hw/final-project-air-force-1/data/police_killings.csv', stringsAsFactors = FALSE)
+source.data <- read.csv('../data/police_killings.csv', stringsAsFactors = FALSE)
 killing.data <- HistogramData(source.data)
 
 killing.data <- na.omit(killing.data)
