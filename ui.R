@@ -37,7 +37,7 @@ shinyUI(fluidPage(
       
       tabPanel("Bar Graph",
                titlePanel("Bar Graph"),
-               selectInput(inputId = "xaxis",
+               radioButtons(inputId = "xaxis",
                            label = "X Axis",
                            choices = list("age", "raceethnicity", "state",
                                           "cause", "armed"),
