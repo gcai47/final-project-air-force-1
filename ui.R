@@ -9,10 +9,25 @@ shinyUI(fluidPage(
     tabsetPanel(
       tabPanel("Map",
                titlePanel("Map"),
-               mainPanel(
-                 plotlyOutput('Map')
-               )
-               
+               sidebarLayout(
+                 sidebarPanel(
+                   radioButtons(inputId = "mapcolor", label = "Color by: ", 
+                                choices = list("Race" = "raceethnicity", "Gender" = "gender", "Armed With" = "armed"), 
+                                selected = "armed"), 
+                   selectInput(inputId = "maprace", label = "Race to Display: ", 
+                               choices = list("All", "White", "Black", "Hispanic/Latino", "Native American", "Asian/Pacific Islander", "Unknown"), 
+                               selected = "All"), 
+                   selectInput(inputId = "mapgender", label = "Gender to Display: ", 
+                               choices = list("All", "Male", "Female"), 
+                               selected = "All"),
+                   selectInput(inputId = "maparmed", label = "Weapons to Display: ", 
+                               choices = list("All", "Unarmed" = "No", "Firearm", "Non-lethal firearm", "Knife", "Vehicle", "Disputed", "Unknown", "Other"), 
+                               selected = "All")
+                 ), 
+                 mainPanel(
+                   plotlyOutput('Map')
+                 )
+               )    
       ),
       
       tabPanel("Histogram",
