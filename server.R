@@ -1,8 +1,5 @@
 library(plotly)
 library(shiny)
-library(ggplot2)
-library(dplyr)
-library(scales)
 
 source('./scripts/MapData.R')
 source('./scripts/HistogramData.R')
