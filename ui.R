@@ -19,7 +19,11 @@ shinyUI(fluidPage(
                titlePanel("Histogram"),
                mainPanel(
                  plotlyOutput('Histogram')
-               )
+               ),
+                 radioButtons("type.plot", label = "Data",
+                              choices = list("Personal Income" = 'personal', "Comparative Income" = 'compared',
+                                             'Unemployment' = 'unemployment', "College Degree Holders" = "college"), 
+                              selected = 'personal')
                
                ),
       
