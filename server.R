@@ -1,8 +1,5 @@
 library(plotly)
 library(shiny)
-library(ggplot2)
-library(dplyr)
-library(scales)
 
 source('./scripts/MapData.R')
 source('./scripts/HistogramData.R')
@@ -26,7 +23,7 @@ shinyServer(function(input, output) {
   })
   
   output$Histogram <- renderPlotly({
-    HistogramPlot(histogram.data, input)
+    HistogramPlot(histogram.data, input$type.plot)
   })
   
   output$Scatter <- renderPlot({

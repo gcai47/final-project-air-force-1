@@ -13,18 +13,22 @@ shinyUI(fluidPage(
                  plotlyOutput('Map')
                )
                
-               ),
+      ),
       
       tabPanel("Histogram",
                titlePanel("Histogram"),
                mainPanel(
                  plotlyOutput('Histogram')
-               )
-               
                ),
+               radioButtons("type.plot", label = "Data",
+                            choices = list("Personal Income" = 'personal', "Comparative Income" = 'compared',
+                                           'Unemployment' = 'unemployment', "College Degree Holders" = "college"), 
+                            selected = 'personal')
+               
+      ),
       
       tabPanel("Scatter Plot", 
-               titlePanel("Scatter Pot"),
+               titlePanel("Scatter Plot"),
                mainPanel(
                  plotlyOutput('Scatter')
                ),
@@ -37,16 +41,23 @@ shinyUI(fluidPage(
                              selected = 'gender')
                )
                
-               ),
+      ),
       
       tabPanel("Bar Graph",
                titlePanel("Bar Graph"),
+               sidebarPanel(
+                 radioButtons(inputId = "xaxis",
+                             label = "X Axis",
+                             choices = list("Age" = 'age', "Race/Ethnicity" = 'race', "State" = 'state',
+                                            "Cause of Death" = 'cause', "Armed" = 'armed'),
+                             selected= "race")
+               ),
                mainPanel(
                  plotlyOutput('Bar')
                )
                
-               )
       )
-    )  
-  )
+    )
+  )  
+)
 )
