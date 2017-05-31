@@ -3,26 +3,34 @@
 #Takes data and input as parameters
 
 
-library(dplyr)
-
 BarPlot <- function(data, input){
   library(ggplot2)
+  library(dplyr)
   
   if(input$xaxis == "age"){
-    plot.data <- data %>% filter(age)
-  } else if (input$xaxis == "raceethnicity") {
-    plot.data <- data %>% filter(raceethnicity)
+    bar.data <- data %>% select(age)
+    info = data$age
+    xLab = "Age"
+  } else if (input$xaxis == "race") {
+    bar.data <- data %>% select(raceethnicity)
+    info = data$raceethnicity
+    xLab = "Race/Ethnicity"
   } else if (input$xaxis == "state") {
-    plot.data <- data %>% filter(state)
+    bar.data <- data %>% select(state)
+    info = data$state
+    xLab = "State"
   } else if (input$xaxis == "cause") {
-    plot.data <- data %>% filter(cause)
+    bar.data <- data %>% select(cause)
+    info = data$cause
+    xLab = "Cause of Death"
   } else {
-    plot.data <- data %>% filter(armed)
+    bar.data <- data %>% select(armed)
+    info = data$armed
+    xLab = "Armed"
   }
   
-  p <- ggplot(plot.data, aes(x = input$xaxis)) +
+  return(ggplot(data, aes(x = info)) +
     geom_bar() +
-    labs(title = "Bar Plot", x = input, y = "Number of Cases")
-  
-  return(p)
+    labs(title = "Bar Plot", x = xLab, y = "Number of Cases") 
+  )
 }

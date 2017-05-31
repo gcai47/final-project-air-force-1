@@ -37,11 +37,13 @@ shinyUI(fluidPage(
       
       tabPanel("Bar Graph",
                titlePanel("Bar Graph"),
-               radioButtons(inputId = "xaxis",
-                           label = "X Axis",
-                           choices = list("age", "raceethnicity", "state",
-                                          "cause", "armed"),
-                           selected= "raceethnicity"),
+               sidebarPanel(
+                 radioButtons(inputId = "xaxis",
+                             label = "X Axis",
+                             choices = list("Age" = 'age', "Race/Ethnicity" = 'race', "State" = 'state',
+                                            "Cause of Death" = 'cause', "Armed" = 'armed'),
+                             selected= "race")
+               ),
                mainPanel(
                  plotlyOutput('Bar')
                )
