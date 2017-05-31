@@ -1,7 +1,11 @@
 library(plotly)
 
-#eval(parse(text = ))
-
 ScatterPlot <- function(scatter.data, input) {
-  plot <- plot_ly(scatter.data, ~eval(parse(text = input$ScatterX)), ~eval(parse(text = input$ScatterY)))
+  ggp <- ggplot(scatter.data, aes(x = eval(parse(text = input$ScatterX)), y = eval(parse(text = input$ScatterY)), colour = eval(parse(text = input$ScatterX)))) +
+    geom_point(position = 'jitter', na.rm = TRUE) +
+    labs(title = paste0(input$ScatterX, ' vs. ', input$ScatterY), x = input$ScatterX, y = input$ScatterY)
+  
+  # Converts to plotly graph and adds hovertext
+  plot <- ggplotly(ggp)
+  return(plot)
 }

@@ -26,7 +26,7 @@ shinyServer(function(input, output) {
     HistogramPlot(histogram.data, input$type.plot)
   })
   
-  output$Scatter <- renderPlot({
+  output$Scatter <- renderPlotly({
     ScatterPlot(scatter.data, input)
   })
   
