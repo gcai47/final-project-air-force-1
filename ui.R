@@ -1,12 +1,21 @@
-#INFO 201 assignment 8 building apps user interface
 library(shiny)
 library(plotly)
+library(shinythemes)
 
-#Here you will define the functionality of your user interface
 shinyUI(fluidPage(
+  theme = shinytheme("sandstone"),
   mainPanel(
     titlePanel("Police Killings in the US"),
     tabsetPanel(
+      tabPanel("Introduction",
+               titlePanel("Our Project"),
+               mainPanel(
+                 p("Welcome to our project! As a team, we decided to examine police homicide data and see what insights that we could draw out of it."),
+                 p("We are aware that is very sensitive information and can be politically/socially polarizing for many people. Our goal when creating this website was not to drive a political agenda, but rather to offer more information on the subject so that any viewers can make their own opinions"),
+                 p("Each page is layed out with interactive graphs that show different visualizations of our data. For some graphs, there will be descriptions and insights, but for the most part the interpretation is up to the viewer"),
+                 p("We hope that we can shed more light on what is happening in these tragic incidents and help discover insights through data, rather than politics"),
+                 strong("© Anuraag Polisetty, Gavin Cai, Richard Jiang, Zach Palmer June 2017")
+               )),
       tabPanel("Map",
                titlePanel("Map"),
                sidebarLayout(
@@ -33,12 +42,16 @@ shinyUI(fluidPage(
       tabPanel("Histogram",
                titlePanel("Histogram"),
                mainPanel(
-                 plotlyOutput('Histogram')
+                 plotlyOutput('Histogram'),
+                 helpText("These histograms are meant to show how the victims of the killings compare to their greater surrounding region in terms of income, education, and unemployment")
                ),
+               sidebarPanel(
                radioButtons("type.plot", label = "Data",
                             choices = list("Personal Income" = 'personal', "Comparative Income" = 'compared',
                                            'Unemployment' = 'unemployment', "College Degree Holders" = "college"), 
-                            selected = 'personal')
+                            selected = 'personal'),
+               helpText("Comparative Income Score is how closely the household income of the victim matched the county income where they lived. A score of 100 meant that the victim's household had the exact same income as the county's average, a score of 50 means that the victim's household had half of the county's average income, etc.")
+               )
                
       ),
       

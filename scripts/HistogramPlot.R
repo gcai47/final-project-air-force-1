@@ -9,6 +9,6 @@ HistogramPlot <- function(data, type.plot) {
                     layout(barmode = "overlay", title = "Personal Income vs County Average Income", yaxis = list(title = 'Count'), xaxis = list(title = 'Income ($)')),
                   compared = plot_ly(data, x = ~comp_income, type = "histogram") %>% layout(title = "Average Comparative Income", yaxis = list(title = 'Count'), xaxis = list(title = 'Comparative Income Score')),
                   unemployment = plot_ly(data, x = ~urate, type = "histogram") %>% layout(title = "Average County Unemployment", yaxis = list(title = 'Count'), xaxis = list(title = '% of People Unemployed')),
-                  college = plot_ly(data, x = ~college, type = "histogram") %>% layout(title = "Number of People with College Degrees", yaxis = list(title = 'Count'), xaxis = list(title = '% of People with College Degrees'))))
+                  college = plot_ly(data, x = ~college, type = "histogram") %>% layout(title = "Number of People with College Degrees in County", yaxis = list(title = 'Count'), xaxis = list(title = '% of People with College Degrees'))))
 }
 
