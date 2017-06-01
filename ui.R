@@ -8,7 +8,7 @@ library(shinythemes)
 shinyUI(fluidPage(
   theme = shinytheme("sandstone"),
   mainPanel(
-    titlePanel("Analysis Police Killings in the US"),
+    titlePanel("Analysis of Police Killings in the US"),
     tabsetPanel(
       # Introduces the project 
       tabPanel("Introduction",
