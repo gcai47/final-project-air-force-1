@@ -8,11 +8,11 @@ library(shinythemes)
 shinyUI(fluidPage(
   theme = shinytheme("sandstone"),
   mainPanel(
-    titlePanel("Police Killings in the US"),
+    titlePanel("Analysis Police Killings in the US"),
     tabsetPanel(
       # Introduces the project 
       tabPanel("Introduction",
-               titlePanel("Our Project"),
+               titlePanel("Our Mission"),
                mainPanel(
                  p("Welcome to our project! As a team, we decided to examine police homicide data and see what insights that we could draw out of it."),
                  p("We are aware that is very sensitive information and can be politically/socially polarizing for many people. Our goal when creating this website was not to drive a political agenda, but rather to offer more information on the subject so that any viewers can make their own opinions"),
