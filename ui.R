@@ -75,9 +75,9 @@ shinyUI(fluidPage(
                
                sidebarPanel(
                radioButtons("type.plot", label = "Data",
-                            choices = list("Personal Income" = 'personal', "Comparative Income" = 'compared',
+                            choices = list("Personal Income" = 'personaldata', "Household Income" = 'personal', "Comparative Income" = 'compared',
                                            'Unemployment' = 'unemployment', "College Degree Holders" = "college"), 
-                            selected = 'personal'),
+                            selected = 'personaldata'),
                helpText("Comparative Income Score is how closely the household income of the victim matched the county income where they lived. A score of 100 meant that the victim's household had the exact same income as the county's average, a score of 50 means that the victim's household had half of the county's average income, etc.")
                ), 
                mainPanel(
