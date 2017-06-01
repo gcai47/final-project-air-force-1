@@ -24,8 +24,8 @@ shinyUI(fluidPage(
                                choices = list("All", "Unarmed" = "No", "Firearm", "Non-lethal firearm", "Knife", "Vehicle", "Disputed", "Unknown", "Other"), 
                                selected = "All")
                  ), 
-                 mainPanel(
-                   plotlyOutput('Map')
+                 mainPanel( 
+                   plotlyOutput('Map', height = "150%", width = "150%")
                  )
                )    
       ),
