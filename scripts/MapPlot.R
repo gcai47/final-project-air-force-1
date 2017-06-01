@@ -3,6 +3,7 @@
 # The number of cases displayed can also be adjusted based on user selected data.
 
 library(plotly)
+library(dplyr)
 
 # Generates a map of the United States plotting the location of police killings. Filters the data based on user input. 
 #   @param df     The data frame of cases to plot
@@ -32,7 +33,8 @@ MapPlot <- function(df, input) {
   # Generates a map of the United States with all values chosen by the user plotted. 
   map <- plot_geo(df, locationmode = "USA-states") %>% 
     add_markers(
-      x = ~longitude, y = ~latitude, color = ~eval(parse(text = input$mapcolor)), hoverinfo = "text", 
+      x = ~longitude, y = ~latitude, hoverinfo = "text",
+      color = ~eval(parse(text = input$mapcolor)), 
       text = ~text
     ) %>% 
     layout(title = "Location of Police Killings in 2015", geo = g)

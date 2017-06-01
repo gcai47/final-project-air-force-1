@@ -5,6 +5,8 @@ library(shiny)
 library(plotly)
 library(shinythemes)
 
+Sys.setlocale('LC_ALL','C')
+
 shinyUI(fluidPage(
   theme = shinytheme("sandstone"),
   mainPanel(
@@ -18,7 +20,7 @@ shinyUI(fluidPage(
                  p("The data set was obtained from the FiveThirtyEight blog. More information about the data can be found at the ", a("source", href = "https://github.com/fivethirtyeight/data/tree/master/police-killings"), "."), 
                  p("We are aware that is very sensitive information and can be politically and socially polarizing for many people. Our goal when creating this website was not to drive a political agenda, but rather to offer more information on the subject and display any trends so that viewers can draw their own opinions.", 
                    "We looked to provide all the necessary information to concerned citizens wanting to learn more about the relationship between police and population."),
-                 p("Each page is layed out with interactive graphs that show different visualizations of our data. For some graphs, there will be descriptions and insights, but for the most part the interpretation is up to the viewer."),
+                 p("Each page is laid out with interactive graphs that show different visualizations of our data. For some graphs, there will be descriptions and insights, but for the most part the interpretation is up to the viewer."),
                  p("We hope that we can shed more light on what is happening in these tragic incidents and help discover insights through data, rather than politics."),
                  strong("© Anuraag Polisetty, Gavin Cai, Richard Jiang, Zach Palmer June 2017")
                )),
