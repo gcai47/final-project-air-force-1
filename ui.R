@@ -53,13 +53,16 @@ shinyUI(fluidPage(
                titlePanel("Overview of Victim Attributes"),
                sidebarPanel(
                  radioButtons(inputId = "xaxis",
-                              label = "X Axis",
+                              label = "Attributes",
                               choices = list("Age" = 'age', "Race/Ethnicity" = 'race', "State" = 'state',
                                              "Cause of Death" = 'cause', "Armed" = 'armed'),
                               selected= "race")
                ),
                mainPanel(
-                 plotlyOutput('Bar', height = "150%", width = "150%")
+                 plotlyOutput('Bar', height = "150%", width = "175%"),
+                 helpText("These barplots display the frequency of deaths compared with the victims' attributes.
+                          Attributes can be selected and according to age, race, gender, state, cause of death, 
+                          and whether they were armed. ")
                )
                
       ), 

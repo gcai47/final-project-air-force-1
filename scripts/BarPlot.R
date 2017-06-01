@@ -1,12 +1,11 @@
 #Comments:
-#Creates barplot function
-#Takes data and input as parameters
-
+# This function takes in user input to display different types of data on a bar plot
 
 BarPlot <- function(data, input){
   library(ggplot2)
   library(dplyr)
   
+  # filters data used in barplot based on user input for the x axis
   if(input$xaxis == "age"){
     bar.data <- data %>% select(age)
     info = data$age
@@ -29,8 +28,11 @@ BarPlot <- function(data, input){
     xLab = "Armed"
   }
   
-  return(ggplot(data, aes(x = info)) +
+  #renders the bar plot using the selected data and colored according to race
+  return(ggplot(data, aes(x = info, fill = (raceethnicity))) +
     geom_bar() +
-    labs(title = "Bar Plot", x = xLab, y = "Number of Cases") 
+    labs(title = "Number of Deaths Compared to Victim Attributes", x = xLab, y = "Number of Cases") + 
+    labs(fill = "Race/Ethnicity")
+
   )
 }
