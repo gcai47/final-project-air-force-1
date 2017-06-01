@@ -1,6 +1,7 @@
 library(tidytext)
 library(plotly)
 
+#Returns a plot_ly plot of a histogram based on the choice passed into it. 'data' is the data frame of the killings, and type.plot is the type of histogram passed in via radio buttons
 HistogramPlot <- function(data, type.plot) {
   return (switch (type.plot,
                   personal = plot_ly(data, alpha = 0.6) %>%
