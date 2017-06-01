@@ -97,7 +97,8 @@ shinyUI(fluidPage(
                              selected = 'gender')
                ), 
                mainPanel(
-                 plotlyOutput('Scatter', height = "150%", width = "150%")
+                 plotlyOutput('Scatter', height = "150%", width = "150%"),
+                 helpText("This scatter plot gives the freedom to compare two attributes of shooting victims and visualizes intresting correlations.")
                )
                
       )
