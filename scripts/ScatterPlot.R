@@ -13,15 +13,7 @@ ScatterPlot <- function(scatter.data, input) {
   # Selects the appropriate name fo X variable
   if (input$ScatterX == 'age') {
     x <- "Age"
-  } else if (input$ScatterX == 'gender') {
-    x <- "Gender"
-  } else if (input$ScatterX == 'raceethnicity') {
-    x <- "Ethnicity"
-  } else if (input$ScatterX == 'cause') {
-    x <- "Cause of Death"
-  } else if (input$ScatterX == 'armed') {
-    x <- "Victim's Arms"
-  } else if (input$ScatterX == 'pop') {
+  } else  if (input$ScatterX == 'pop') {
     x <- "Population of County"
   } else if (input$ScatterX == 'share_white') {
     x <- "Percentage of White Population"
@@ -37,10 +29,6 @@ ScatterPlot <- function(scatter.data, input) {
     x <- "% Average Income"
   } else if (input$ScatterX == 'comp_income') {
     x <- "Income Relative to Average" 
-  } else if (input$ScatterX == 'county_bucket') {
-    x <- "Quintile of County Income"
-  } else if (input$ScatterX == 'nat_bucket') {
-    x <- "Quintile of National Income"
   } else if (input$ScatterX == 'pov') {
     x <- "County Poverty Rate"
   } else if (input$ScatterX == 'urate') {
@@ -52,14 +40,6 @@ ScatterPlot <- function(scatter.data, input) {
   # Selects the appropriate name fo Y variable
   if (input$ScatterY == 'age') {
     y <- "Age"
-  } else if (input$ScatterY == 'gender') {
-    y <- "Gender"
-  } else if (input$ScatterY == 'raceethnicity') {
-    y <- "Ethnicity"
-  } else if (input$ScatterY == 'cause') {
-    y <- "Cause of Death"
-  } else if (input$ScatterY == 'armed') {
-    y <- "Victim's Arms"
   } else if (input$ScatterY == 'pop') {
     y <- "Population of County"
   } else if (input$ScatterY == 'share_white') {
@@ -76,10 +56,6 @@ ScatterPlot <- function(scatter.data, input) {
     y <- "% Average Income"
   } else if (input$ScatterY == 'comp_income') {
     y <- "Income Relative to Average" 
-  } else if (input$ScatterY == 'county_bucket') {
-    y <- "Quintile of County Income"
-  } else if (input$ScatterY == 'nat_bucket') {
-    y <- "Quintile of National Income"
   } else if (input$ScatterY == 'pov') {
     y <- "County Poverty Rate"
   } else if (input$ScatterY == 'urate') {
@@ -88,12 +64,25 @@ ScatterPlot <- function(scatter.data, input) {
     y <- "College Education Rate"
   }
   
+  if (input$ScatterColor == 'gender') {
+    c <- "Gender"
+  } else if (input$ScatterColor == 'raceethnicity') {
+    c <- "Ethnicity"
+  } else if (input$ScatterColor == 'cause') {
+    c <- "Cause of Death"
+  } else if (input$ScatterColor == 'armed') {
+    c <- "Armed with"
+  } else if (input$ScatterColor == 'county_bucket') {
+    c <- "Quintile of County Income"
+  } else if (input$ScatterColor == 'nat_bucket') {
+    c <- "Quintile of National Income"
+  } 
+  
   # Generates a jittered scatter plot with the chosen X and Y axes with outline color coresponding to X 
   # and fill color coresponding to Y.s
-  ggp <- ggplot(scatter.data, aes(x = eval(parse(text = input$ScatterX)), y = eval(parse(text = input$ScatterY)), colour = eval(parse(text = input$ScatterX)), fill = eval(parse(text = input$ScatterY)))) +
-    geom_point(position = 'jitter', na.rm = TRUE) +
-    labs(title = paste0(x, ' vs. ', y, ' of Shooting Victims'), x = x, y = y, colour = x) +
-    theme(legend.position = 'none')
+  ggp <- ggplot(scatter.data, aes(x = eval(parse(text = input$ScatterX)), y = eval(parse(text = input$ScatterY)), colour = eval(parse(text = input$ScatterColor)))) +
+    geom_point(na.rm = TRUE, alpha = 0.75) +
+    labs(title = paste0(x, ' vs. ', y, ' of Shooting Victims'), x = x, y = y, colour = c)
   
   # Converts to plotly graph and removes hoverinfo
   plot <- ggplotly(ggp, tooltip = NULL)
