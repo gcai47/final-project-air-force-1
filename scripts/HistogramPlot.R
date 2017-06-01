@@ -5,7 +5,7 @@ HistogramPlot <- function(data, type.plot) {
   return (switch (type.plot,
                   personal = plot_ly(data, alpha = 0.6) %>%
                     add_histogram(x = ~p_income, name = 'Personal Income') %>%
-                    add_histogram(x = ~county_income, name = 'County Average Income') %>%
+                    add_histogram(x = ~county_income, name = 'Average Household Income in County') %>%
                     layout(barmode = "overlay", title = "Personal Income vs County Average Income", yaxis = list(title = 'Count'), xaxis = list(title = 'Income ($)')),
                   compared = plot_ly(data, x = ~comp_income, type = "histogram") %>% layout(title = "Average Comparative Income", yaxis = list(title = 'Count'), xaxis = list(title = 'Comparative Income Score')),
                   unemployment = plot_ly(data, x = ~urate, type = "histogram") %>% layout(title = "Average County Unemployment", yaxis = list(title = 'Count'), xaxis = list(title = '% of People Unemployed')),

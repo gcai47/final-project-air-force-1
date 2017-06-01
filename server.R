@@ -1,3 +1,6 @@
+# Server used to host the application. 
+# Creates the plots displayed to the user and considers user input. 
+
 library(plotly)
 library(shiny)
 
@@ -12,11 +15,13 @@ source('./scripts/BarPlot.R')
 
 full.data <- read.csv('./data/police_killings.csv', stringsAsFactors = FALSE)
 
+# Read in data to be used for each plot. 
 map.data <- MapData(full.data)
 histogram.data <- HistogramData(full.data)
 scatter.data <- ScatterData(full.data)
 bar.data <- BarData(full.data)
 
+# Generate output plots displayed in UI. 
 shinyServer(function(input, output) {
   output$Map <- renderPlotly({
     MapPlot(map.data, input)
