@@ -10,6 +10,7 @@ shinyUI(fluidPage(
   mainPanel(
     titlePanel("Police Killings in the US"),
     tabsetPanel(
+      # Introduces the project 
       tabPanel("Introduction",
                titlePanel("Our Project"),
                mainPanel(
@@ -19,6 +20,8 @@ shinyUI(fluidPage(
                  p("We hope that we can shed more light on what is happening in these tragic incidents and help discover insights through data, rather than politics"),
                  strong("© Anuraag Polisetty, Gavin Cai, Richard Jiang, Zach Palmer June 2017")
                )),
+      
+      # Displays a visual map of the shootings
       tabPanel("Map",
                titlePanel("Map of Police Killings in 2015"),
                sidebarLayout(
@@ -43,6 +46,7 @@ shinyUI(fluidPage(
                )    
       ),
       
+      # Displays information about the victims
       tabPanel("Victims",
                titlePanel("Overview of Victim Attributes"),
                sidebarPanel(
@@ -58,6 +62,7 @@ shinyUI(fluidPage(
                
       ), 
       
+      # Displays information about the region where the victims lived
       tabPanel("Regions",
                titlePanel("Comparing Regions Where the Victims Lived"),
                
@@ -75,6 +80,7 @@ shinyUI(fluidPage(
                
       ),
       
+      # Allows the user to choose two categories to compare
       tabPanel("Comparison", 
                titlePanel("Comparing Attributes of Shooting Victims"),
                sidebarPanel(
