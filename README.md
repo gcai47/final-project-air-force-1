@@ -5,6 +5,7 @@
 This is our group's final project for INFO 201 Spring 2017. This is the [link](https://gcai47.shinyapps.io/final-project-air-force-1/) to our final project.
 
 
+
 As a team, we decided to examine police homicide data and see what insights that we could draw out of it.
 
 The data set was obtained from the FiveThirtyEight blog. More information about the data can be found at the [source](https://github.com/fivethirtyeight/data/tree/master/police-killings).
